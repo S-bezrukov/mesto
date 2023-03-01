@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vendor/normalize.css">
-  <link rel="stylesheet" href="./vendor/fonts/Inter/font.css">
-  <link rel="stylesheet" href="./style.css">
-  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
+  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -15,7 +12,6 @@
       <a href="#" class="header__logo-link"><img src="./images/logo.svg" alt="Логотип" class="logo logo_place_header"></a>
     </header>
     <main class="content">
-
       <section class="profile">
         <img src="./images/avatar.jpg" class="profile__avatar" alt="Аватарка">
         <div class="profile__info">
@@ -23,60 +19,68 @@
           <h2 class="profile__description">Исследователь океана</h2>
           <button class="profile__edit-button"></button>
         </div>
-        <button class="profile__Add-button"></button>
+        <button class="profile__add-button"></button>
       </section>
-
-      <section class="elements">
+      <section class="elements" aria-label="Список изображений">
         <ul class="elements__list">
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
             <div class="elements__info">
               <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <div class="elements__icon"></div>
             </div>
           </li>
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/Gora-Elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
             <div class="elements__info">
-              <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <p class="elements__text">Гора Эльбрус</p>
+              <div class="elements__icon elements__icon_active"></div>
             </div>
           </li>
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
             <div class="elements__info">
-              <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <p class="elements__text">Домбай</p>
+              <div class="elements__icon"></div>
             </div>
           </li>
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/Gora-Elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
             <div class="elements__info">
-              <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <p class="elements__text">Гора Эльбрус</p>
+              <div class="elements__icon"></div>
             </div>
           </li>
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
             <div class="elements__info">
-              <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <p class="elements__text">Домбай</p>
+              <div class="elements__icon"></div>
             </div>
           </li>
           <li class="elements__element">
-            <img src="./images/Karachaevsk.jpg" alt="" class="elements__image">
+            <img src="./images/Karachaevsk.jpg" alt="Карачаево-Черкесия" class="elements__image">
             <div class="elements__info">
-              <p class="elements__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="elements__icon">
+              <p class="elements__text">Карачаево-Черкесия</p>
+              <div class="elements__icon"></div>
             </div>
           </li>
         </ul>
       </section>
-
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
   </div>
+  <div class="popup">
+    <form class="popup__form">
+      <img class="popup__image" src="./images/Close-Icon.svg" alt="Иконка закрыть">
+      <p class="popup__title">Редактировать профиль</p>
+      <input type="text" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name">
+      <input type="text" placeholder="Исследователь океана" class="popup__input popup__input_type_job">
+      <button class="popup__submit-btn popup__submit-btn_action_add">Сохранить</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

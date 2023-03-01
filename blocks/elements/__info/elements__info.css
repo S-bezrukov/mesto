@@ -1,0 +1,7 @@
+.elements__info {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -4px;
+  border-radius: 0 0 10px 10px;
+}

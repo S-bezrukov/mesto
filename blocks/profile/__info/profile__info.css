@@ -1,0 +1,19 @@
+.profile__info {
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-gap: 0 0;
+  grid-template-areas:
+    'title edit-button'
+    'description .';
+  width: 100%;
+}
+
+@media screen and (max-width: 695px) {
+  .profile__info {
+    margin: 0 auto;
+    width: auto;
+    padding-left: 32px;
+    padding-top: 22px;
+  }
+}
