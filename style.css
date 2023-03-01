@@ -1,0 +1,245 @@
+.page {
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+  background: #000;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #fff;
+}
+
+.page__container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 919px) {
+  .content {
+    padding: 0 19px;
+  }
+}
+
+.header {
+  padding: 45px 0 41px 0;
+  border-bottom: 1px solid #545454b3;
+}
+
+@media screen and (max-width: 919px) {
+  .header {
+    padding: 45px 0 41px 27px;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .header {
+    padding: 28px 0 32px 27px;
+  }
+}
+
+.profile {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, 1fr);
+  grid-gap: 0 0;
+  grid-template-areas:
+    'avatar info Add-button';
+}
+
+@media screen and (max-width: 695px) {
+  .profile {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+    'avatar'
+    'info'
+    'Add-button';
+  }
+}
+
+.profile__avatar {
+  grid-area: avatar;
+  max-width: 120px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 695px) {
+  .profile__avatar {
+    margin: 0 auto;
+  }
+}
+
+.profile__Add-button {
+  grid-area: Add-button;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background: url(../images/plus.svg) no-repeat center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 695px) {
+  .profile__Add-button {
+    width: 100%;
+    max-width: 282px;
+  }
+}
+
+.profile__info {
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-gap: 0 0;
+  grid-template-areas:
+    'title edit-button'
+    'description .';
+  width: 100%;
+}
+
+@media screen and (max-width: 695px) {
+  .profile__info {
+    margin: 0 auto;
+    width: auto;
+    padding-left: 24px;
+    padding-top: 22px;
+  }
+}
+
+.profile__title {
+  grid-area: title;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+@media screen and (max-width: 424px) {
+  .profile__title {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    padding-bottom: 14px;
+  }
+}
+
+
+.profile__description {
+  grid-area: description;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+}
+
+@media screen and (max-width: 695px) {
+  .profile__description {
+    text-align: center;
+    padding-bottom: 36px;
+  }
+}
+
+.profile__edit-button {
+  grid-area: edit-button;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  margin: 16px 0 0 16px;
+  background: url(../images/pencil.svg) no-repeat center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 424px) {
+  .profile__edit-button {
+    margin: 6px 0 0 0;
+  }
+}
+
+.elements {
+  padding-top: 46px;
+  padding-bottom: 67px;
+}
+
+@media screen and (max-width: 424px) {
+  .elements {
+    padding-top: 36px;
+    padding-bottom: 48px;
+  }
+}
+
+.elements__list {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .elements__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .elements__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.elements__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.elements__info {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -4px;
+  border-radius: 0 0 10px 10px;
+}
+
+.elements__text {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000;
+  margin: 0;
+  padding: 25px 0 31px 21px;
+}
+
+.elements__icon {
+  padding-right: 20px;
+}
+
+.footer {
+  padding-bottom: 60px;
+}
+
+@media screen and (max-width: 424px) {
+  .footer {
+    padding-bottom: 36px;
+  }
+}
+
+.footer__copyright {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
+
+@media screen and (max-width: 919px) {
+  .footer__copyright {
+    padding-left: 19px;
+  }
+}
