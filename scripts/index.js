@@ -8,11 +8,11 @@ let nameInput = formElement.querySelector('.form__input_type_name');
 let jobInput = formElement.querySelector('.form__input_type_job');
 let profileTitle = mainContent.querySelector('.profile__title');
 let profileDescription = mainContent.querySelector('.profile__description');
-nameInput.setAttribute('placeholder', profileTitle.textContent);
-jobInput.setAttribute('placeholder', profileDescription.textContent);
 
 function popupOpen() {
   popup.classList.add('popup_opened');
+  nameInput.setAttribute('placeholder', profileTitle.textContent);
+  jobInput.setAttribute('placeholder', profileDescription.textContent);
 }
 
 function popupClose() {
