@@ -1,25 +1,30 @@
-.popup__submit-btn {
+.form__submit-btn {
   background: #000000;
   border-radius: 2px;
   width: 100%;
   color: #fff;
   height: 50px;
   padding: 0;
+  border: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
 
-.popup__submit-btn:hover {
+.form__submit-btn:hover {
   background: rgb(0 0 0 / 80%);
-  border: 1px solid rgb(0 0 0 / 80%);
   transition: 0.8s;
 }
 
-.popup__submit-btn:not(:hover) {
+.form__submit-btn:not(:hover) {
   background: #000000;
   transition: 0.8s;
 }
 
 @media screen and (max-width: 425px)  {
-  .popup__submit-btn {
-    height: 45px;
+  .form__submit-btn {
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

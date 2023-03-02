@@ -4,7 +4,6 @@
   line-height: 29px;
   color: #000;
   margin: 0;
-  padding: 25px 0 31px 21px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -14,12 +13,6 @@
 @media screen and (max-width: 838px) {
   .elements__text {
     max-width: 165px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .elements__text {
-    max-width: 220px;
   }
 }
 
