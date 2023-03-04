@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
+  <script defer></script>
 </head>
 <body class="page">
   <div class="page__container">
@@ -72,17 +73,17 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup">
+  <section class="popup">
     <div class="popup__container">
-      <img class="popup__image" src="./images/close-icon.svg" alt="Иконка закрыть">
+      <button class="popup__image" type="button"></button>
       <form action="" class="form" name="Форма профиля">
         <h2 class="form__title">Редактировать профиль</h2>
-        <input type="text" placeholder="Имя" class="form__input form__input_type_name">
-        <input type="text" placeholder="О себе" class="form__input form__input_type_job">
+        <input type="text" placeholder="Имя" value="" class="form__input form__input_type_name">
+        <input type="text" placeholder="О себе" value="" class="form__input form__input_type_job">
         <button type="submit" class="form__submit-btn form__submit-btn_action_add">Сохранить</button>
       </form>
     </div>   
-  </div>
-  <script defer src="./scripts/index.js"></script>
+  </section>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

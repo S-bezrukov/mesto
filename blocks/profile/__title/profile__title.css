@@ -25,7 +25,6 @@
 
 @media screen and (max-width: 424px) {
   .profile__title {
-    font-weight: 500;
     font-size: 27px;
     line-height: 33px;
     padding-bottom: 14px;

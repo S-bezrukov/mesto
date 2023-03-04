@@ -11,8 +11,8 @@ let profileDescription = mainContent.querySelector('.profile__description');
 
 function popupOpen() {
   popup.classList.add('popup_opened');
-  nameInput.setAttribute('placeholder', profileTitle.textContent);
-  jobInput.setAttribute('placeholder', profileDescription.textContent);
+  nameInput.setAttribute('value', profileTitle.textContent);
+  jobInput.setAttribute('value', profileDescription.textContent);
 }
 
 function popupClose() {
