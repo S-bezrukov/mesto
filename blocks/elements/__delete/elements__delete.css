@@ -2,7 +2,7 @@
   cursor: pointer;
   padding: 0;
   border: 0;
-  background: url(../../../../images/trash.svg) center center / 18px 19px no-repeat;
+  background: url(../../../images/trash.svg) center center / 18px 19px no-repeat;
   position: absolute;
   z-index: 1000;
   width: 18px;
