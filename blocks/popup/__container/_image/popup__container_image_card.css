@@ -1,3 +1,6 @@
 .popup__container_image_card {
-  position: relative;
+  background-color: transparent;
+  width: unset;
+  padding: 0;
+  border-radius: 0;
 }
