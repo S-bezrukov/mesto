@@ -23,48 +23,6 @@
       </section>
       <section class="elements" aria-label="Список изображений">
         <ul class="elements__list">
-          <li class="elements__element">
-            <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Карачаевск</h2>
-              <button class="elements__icon" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-            <img src="./images/gora-elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Гора Эльбрус</h2>
-              <button class="elements__icon elements__icon_active" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-            <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Домбай</h2>
-              <button class="elements__icon" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-            <img src="./images/gora-elbrus.jpg" alt="Гора Эльбрус" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Гора Эльбрус</h2>
-              <button class="elements__icon" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-            <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Домбай</h2>
-              <button class="elements__icon" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-            <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия" class="elements__image">
-            <div class="elements__info">
-              <h2 class="elements__text">Карачаево-Черкесия</h2>
-              <button class="elements__icon" type="button"></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -72,10 +30,11 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
   </div>
-  <section class="popup">
+
+  <section class="popup popup_edit_profile">
     <div class="popup__container">
-      <button class="popup__image" type="button"></button>
-      <form class="form" name="Форма профиля">
+      <button class="popup__image popup__image_edit_profile" type="button"></button>
+      <form class="form form_edit_profile" name="Форма профиля">
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" placeholder="Имя" value="" class="form__input form__input_type_name">
         <input type="text" placeholder="О себе" value="" class="form__input form__input_type_job">
@@ -83,6 +42,38 @@
       </form>
     </div>   
   </section>
+
+  <section class="popup popup_add_card">
+    <div class="popup__container">
+      <button class="popup__image popup__image_add_card" type="button"></button>
+      <form class="form form_add_card" name="Форма место">
+        <h2 class="form__title">Новое место</h2>
+        <input type="text" placeholder="Название" value="" class="form__input form__input_type_place">
+        <input type="text" placeholder="Ссылка на картинку" value="" class="form__input form__input_type_photo">
+        <button type="submit" class="form__submit-btn form__submit-btn_action_create">Создать</button>
+      </form>
+    </div>   
+  </section>
+
+  <section class="popup popup_zoom_card">
+    <div class="popup__container_image_card">
+      <button class="popup__image popup__image_zoom_card" type="button"></button>
+        <img class="popup__image-place" src="#" alt="">
+        <h2 class="popup__title-place"></h2>
+    </div>
+  </section>
+
+  <template class="element_template">
+    <li class="elements__element">
+      <button class="elements__delete" type="button"></button>
+      <img class="elements__image" src="#" alt="название места">
+      <div class="elements__info">
+        <h2 class="elements__text"></h2>
+        <button class="elements__icon" type="button"></button>
+      </div>
+    </li> 
+  </template>
+
   <script defer src="./scripts/index.js"></script>
 </body>
 </html>

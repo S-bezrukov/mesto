@@ -3,6 +3,7 @@
   opacity: 1;
   cursor: pointer;
   background: url(../../../images/heart.svg) center center / 22px 19px no-repeat;
+  width: 22px;
   border: 0;
 }
 
