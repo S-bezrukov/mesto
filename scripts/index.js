@@ -1,20 +1,27 @@
 const page = document.querySelector('.page');
-let popup = page.querySelector('.popup');
-let popupAddButton = page.querySelector('.popup_add_card');
-let popupEditProfile = page.querySelector('.popup_edit_profile');
-let popupZoomCard = page.querySelector('.popup_zoom_card');
-let popupImageEditProfile = page.querySelector('.popup__image_edit_profile');
-let popupImageAddCard = page.querySelector('.popup__image_add_card');
-let popupImageZoomCard = page.querySelector('.popup__image_zoom_card');
-let mainContent = document.querySelector('.content');
-let profileEditButton = mainContent.querySelector('.profile__edit-button');
-let profileAddButton = mainContent.querySelector('.profile__add-button');
-let formEditProfile = popup.querySelector('.form_edit_profile');
-let nameInput = formEditProfile.querySelector('.form__input_type_name');
-let jobInput = formEditProfile.querySelector('.form__input_type_job');
-let profileTitle = mainContent.querySelector('.profile__title');
-let profileDescription = mainContent.querySelector('.profile__description');
-let initialCards = [
+const mainContent = document.querySelector('.content');
+const profileEditButton = mainContent.querySelector('.profile__edit-button');
+const profileAddButton = mainContent.querySelector('.profile__add-button');
+const profileDescription = mainContent.querySelector('.profile__description');
+const elementsList = mainContent.querySelector('.elements__list');
+const profileTitle = mainContent.querySelector('.profile__title');
+const popup = page.querySelector('.popup');
+const popupAddButton = page.querySelector('.popup_add_card');
+const popupEditProfile = page.querySelector('.popup_edit_profile');
+const popupZoomCard = page.querySelector('.popup_zoom_card');
+const popupImageEditProfile = page.querySelector('.popup__image_edit_profile');
+const popupImageAddCard = page.querySelector('.popup__image_add_card');
+const popupImageZoomCard = page.querySelector('.popup__image_zoom_card');
+const formEditProfile = popup.querySelector('.form_edit_profile');
+const elementTemplate = page.querySelector('.element_template').content;
+const formAddCard = page.querySelector('.form_add_card');
+const placeInput = formAddCard.querySelector('.form__input_type_place');
+const photoInput = formAddCard.querySelector('.form__input_type_photo');
+const elementText = page.querySelector('.elements__text');
+const popupImagePlace = page.querySelector('.popup__image-place');
+const popupTitlePlace = page.querySelector('.popup__title-place');
+const elementImage = page.querySelector('.elements__image');
+const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -40,15 +47,9 @@ let initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ]; 
-const elementTemplate = document.querySelector('.element_template').content;
-const elementsList = document.querySelector('.elements__list');
-let formAddCard = document.querySelector('.form_add_card');
-let placeInput = formAddCard.querySelector('.form__input_type_place');
-let photoInput = formAddCard.querySelector('.form__input_type_photo');
-let elementText = document.querySelector('.elements__text');
-let popupImagePlace = document.querySelector('.popup__image-place');
-let popupTitlePlace = document.querySelector('.popup__title-place');
-let elementImage = document.querySelector('.elements__image');
+
+let nameInput = formEditProfile.querySelector('.form__input_type_name');
+let jobInput = formEditProfile.querySelector('.form__input_type_job');
 
 // Открываем попап
 const open = function (popup) {
