@@ -1,7 +1,7 @@
 const page = document.querySelector('.page');
 const mainContent = document.querySelector('.content');
-const ButtonEditProfile = mainContent.querySelector('.profile__edit-button');
-const ButtonAddCard = mainContent.querySelector('.profile__add-button');
+const buttonEditProfile = mainContent.querySelector('.profile__edit-button');
+const buttonAddCard = mainContent.querySelector('.profile__add-button');
 const profileDescription = mainContent.querySelector('.profile__description');
 const elementsContainer = mainContent.querySelector('.elements__list');
 const profileTitle = mainContent.querySelector('.profile__title');
@@ -59,13 +59,13 @@ const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
 }
 
-ButtonEditProfile.addEventListener('click', function() {
+buttonEditProfile.addEventListener('click', function() {
   nameInputProfile.value = profileTitle.textContent;
   jobInputProfile.value = profileDescription.textContent;
   openPopup(popupEditProfile); 
 })
 
-ButtonAddCard.addEventListener('click', function() {
+buttonAddCard.addEventListener('click', function() {
   openPopup(popupAddCard); 
 })
 
