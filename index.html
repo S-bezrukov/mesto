@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -33,21 +34,33 @@
   <section class="popup popup_edit_profile">
     <div class="popup__container">
       <button class="popup__image popup__image_edit_profile" type="button"></button>
-      <form class="form form_edit_profile" name="Форма профиля">
+       <form class="form form_edit_profile" name="Форма профиля" novalidate>
         <h2 class="form__title">Редактировать профиль</h2>
-        <input type="text" placeholder="Имя" value="" class="form__input form__input_type_name">
-        <input type="text" placeholder="О себе" value="" class="form__input form__input_type_job">
+        <label class="form__label-name">
+          <input type="text" minlength="2" maxlength="40" id="name" name="name" required placeholder="Имя" value="" class="form__input form__input_type_name">
+          <span class="form__span" id="name-error"></span>
+        </label>
+        <label class="form__label-job">
+          <input type="text" minlength="2" maxlength="400" id="about-us" name="about-us" required placeholder="О себе" value="" class="form__input form__input_type_job">
+          <span class="form__span" id="about-us-error"></span>
+        </label>
         <button type="submit" class="form__submit-btn form__submit-btn_action_add">Сохранить</button>
-      </form>
+      </form> 
     </div>   
   </section>
   <section class="popup popup_add_card">
     <div class="popup__container">
       <button class="popup__image popup__image_add_card" type="button"></button>
-      <form class="form form_add_card" name="Форма место">
+      <form class="form form_add_card" name="Форма место" novalidate>
         <h2 class="form__title">Новое место</h2>
-        <input type="text" placeholder="Название" value="" class="form__input form__input_type_place">
-        <input type="text" placeholder="Ссылка на картинку" value="" class="form__input form__input_type_photo">
+        <label class="form__label-place">
+          <input type="text" minlength="2" maxlength="30" id="place-card" name="place" required placeholder="Название" value="" class="form__input form__input_type_place">
+          <span class="form__span" id="place-card-error"></span>
+        </label>
+        <label class="form__label-photo">
+          <input type="url" id="link-image" name="link-image" required placeholder="Ссылка на картинку" value="" class="form__input form__input_type_photo">
+          <span class="form__span form__span_padding-url" id="link-image-error"></span>
+        </label>
         <button type="submit" class="form__submit-btn form__submit-btn_action_create">Создать</button>
       </form>
     </div>   
