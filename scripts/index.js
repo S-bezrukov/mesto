@@ -5,15 +5,23 @@ const buttonAddCard = mainContent.querySelector('.profile__add-button');
 const profileDescription = mainContent.querySelector('.profile__description');
 const elementsContainer = mainContent.querySelector('.elements__list');
 const profileTitle = mainContent.querySelector('.profile__title');
+// попап карточки
 const popupAddCard = page.querySelector('.popup_add_card');
-const popupEditProfile = page.querySelector('.popup_edit_profile');
+const popupCardInputs = popupAddCard.querySelectorAll('.form__input');
+const formAddCard = popupAddCard.querySelector('.form_add_card');
+const formButtonCreate = popupAddCard.querySelector('.form__submit-btn_action_create');
+// попап профиля
+const popupEditProfile = document.querySelector('.popup_edit_profile');
+const popupProfileInputs = popupEditProfile.querySelectorAll('.form__input');
+const formEditProfile = popupEditProfile.querySelector('.form_edit_profile');
+const formButtonProfille = popupEditProfile.querySelector('.form__submit-btn_action_add');
+
+
 const popupZoomCard = page.querySelector('.popup_zoom_card');
 const buttonImageEditProfile = page.querySelector('.popup__image_edit_profile');
 const buttonImageAddCard = page.querySelector('.popup__image_add_card');
 const buttonImageZoomCard = page.querySelector('.popup__image_zoom_card');
 const elementTemplate = page.querySelector('.element_template').content;
-const formAddCard = page.querySelector('.form_add_card');
-const formEditProfile = page.querySelector('.form_edit_profile');
 const elementText = page.querySelector('.elements__text');
 const popupImagePlace = page.querySelector('.popup__image-place');
 const popupTitlePlace = page.querySelector('.popup__title-place');
@@ -23,8 +31,6 @@ const imageInputCard = formAddCard.querySelector('.form__input_type_photo');
 const nameInputProfile = formEditProfile.querySelector('.form__input_type_name');
 const jobInputProfile = formEditProfile.querySelector('.form__input_type_job');
 const formInputs = document.querySelectorAll('.form__input');
-const formButtonProfille = document.querySelector('.form__submit-btn_action_add');
-const formButtonCreate = document.querySelector('.form__submit-btn_action_create');
 const initialCards = [
   {
     name: 'Архыз',
@@ -54,43 +60,55 @@ const initialCards = [
 
 // Открываем попап
 const openPopup = function (popup) {
-  popup.classList.add('popup_opened');
-  removeValidationErrors(formInputs, validationConfig);
+  popup.classList.add('popup_opened')
   document.addEventListener('keydown', closePopupEsc)
   popup.addEventListener('click', closePopupOverlay)
 }
 
 // Закрываем попап
 const closePopup = function (popup) {
-  popup.classList.remove('popup_opened');
+  popup.classList.remove('popup_opened')
+  document.removeEventListener('keydown', closePopupEsc)
+  popup.removeEventListener('click', closePopupOverlay)
 }
+
+const openProfilePopup = function() {
+  enableButton (formButtonProfille, {inactiveButtonClass:validationConfig.inactiveButtonClass, activeButtonClass:validationConfig.activeButtonClass});
+  removeValidationErrors(popupProfileInputs, validationConfig);
+  nameInputProfile.value = profileTitle.textContent;
+  jobInputProfile.value = profileDescription.textContent;
+  openPopup(popupEditProfile); 
+}
+
+buttonEditProfile.addEventListener('click', function() {
+  openProfilePopup()
+})
+
+const openAddCardPopup = function() {
+  placeInputCard.value = "";
+  imageInputCard.value = "";
+  removeValidationErrors(popupCardInputs, validationConfig);
+  openPopup(popupAddCard); 
+}
+
+buttonAddCard.addEventListener('click', function() {
+  openAddCardPopup()
+})
 
 const closePopupEsc = function (evt) {
   if (evt.key === 'Escape') {
-    const popupOpened = document.querySelector('.popup_opened')
-    closePopup(popupOpened);
+    const activePopup = document.querySelector('.popup_opened')
+    if (activePopup) { 
+      closePopup(activePopup) 
+    }
   }
 }
 
 const closePopupOverlay = function (evt) {
   if (evt.target === evt.currentTarget) {
-    const popupOpened = document.querySelector('.popup_opened')
-    closePopup(popupOpened);
+    closePopup(evt.target)
   }
 }
-
-buttonEditProfile.addEventListener('click', function() {
-  enableButton (formButtonProfille, {inactiveButtonClass:validationConfig.inactiveButtonClass, activeButtonClass:validationConfig.activeButtonClass});
-  nameInputProfile.value = profileTitle.textContent;
-  jobInputProfile.value = profileDescription.textContent;
-  openPopup(popupEditProfile); 
-})
-
-buttonAddCard.addEventListener('click', function() {
-  placeInputCard.value = "";
-  imageInputCard.value = "";
-  openPopup(popupAddCard); 
-})
 
 function openZoomCard() {
   openPopup(popupZoomCard); 
@@ -113,6 +131,7 @@ function handleFormSubmitEditProfile (evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInputProfile.value;
   profileDescription.textContent = jobInputProfile.value;
+  disableButton(formButtonCreate, {inactiveButtonClass:validationConfig.inactiveButtonClass, activeButtonClass:validationConfig.activeButtonClass});
   closePopup(popupEditProfile);
 }
 
@@ -179,89 +198,3 @@ function handleFormSubmitAddCard (evt) {
 }
 
 formAddCard.addEventListener('submit', handleFormSubmitAddCard);
-
-// Валидация форм
-const validationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__submit-btn',
-  inactiveButtonClass: 'form__submit-btn_action_disabled',
-  activeButtonClass: 'form__submit-btn_action_enabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}
-
-//эта функция запускает валидацию
-const enableValidation = ({formSelector, ...rest}) => {   
-	const forms = Array.from(document.querySelectorAll(formSelector))
-	forms.forEach(form => {
-		form.addEventListener('submit', (evt) => {
-		evt.preventDefault();
-		})
-		setEventListeners(form, rest)
-	})
-}
-
-const setEventListeners = (formToValidate, { inputSelector, submitButtonSelector, ...rest }) => {
-	const formInputs = Array.from(formToValidate.querySelectorAll(inputSelector)) // с начало выполниться то, что в скобках, найдутся псевдомассив со всеми инпутами фомы и Array.from преобразует их в массив инпутов
-	const formButton = formToValidate.querySelector(submitButtonSelector) //получаем ссылку на кнопку
-	disableButton(formButton, rest) // сделаем кнопку не активной, когда страница только загрузилась и в поля данные ещё не вводились. 
-	formInputs.forEach(input => { //теперь пройдёмся по этому массиву циклом и с каждым элемнтом выполним деёствие, берём инпут и накладываем на него слушатель
-		input.addEventListener('input', () => {
-			checkInputValidity(input, rest)
-			if (hasInvalidInput(formInputs)) {
-				disableButton(formButton, rest)  // сделать эту кнопку не валидной
-			} else {
-				enableButton(formButton, rest) // сделать эту кнопку валидной
-			}
-		})
-	})
-}
-
-const checkInputValidity = (input, {inputErrorClass, errorClass}) => {
-	if (input.checkValidity()) {      //Если поле отдаст true, значит поле прошло валидацию
-		hideInputError(input, {inputErrorClass, errorClass})
-	} else {
-		showInputError(input, {inputErrorClass, errorClass})
-	}
-}
-
-const showInputError = (input, {inputErrorClass, errorClass}) => {
-  const inputError = document.querySelector(`#${input.id}`)
-  inputError.classList.add(inputErrorClass);
-  const errorMessage = document.querySelector(`#${input.id}-error`)
-  errorMessage.textContent = input.validationMessage;
-  errorMessage.classList.add(errorClass);
-}
-
-const hideInputError = (input, {inputErrorClass, errorClass}) => {
-  const inputError = document.querySelector(`#${input.id}`)
-  inputError.classList.remove(inputErrorClass);
-  const errorMessage = document.querySelector(`#${input.id}-error`)
-  errorMessage.classList.remove(errorClass);
-  errorMessage.textContent = '';
-}
-
-const hasInvalidInput = (formInputs) => {
-	return formInputs.some(item => !item.validity.valid) // в эту функцию передаём массив formInputs и проверяем, если хоть одно поле не валидно то получаем false иначе true
-}
-
-const enableButton = (button, {inactiveButtonClass, activeButtonClass}) => {
-	button.classList.remove(inactiveButtonClass)
-	button.classList.add(activeButtonClass)
-	button.removeAttribute('disabled')	
-}
-
-const disableButton = (button, {inactiveButtonClass, activeButtonClass}) => {
-	button.classList.add(inactiveButtonClass)
-	button.classList.remove(activeButtonClass)
-  button.setAttribute('disabled', true)
-}
-
-enableValidation (validationConfig) //вызываем функцию
-
-const removeValidationErrors = function(inputs, validationConfig) {
-  inputs.forEach(input => {
-    hideInputError(input, validationConfig)
-})
-}
