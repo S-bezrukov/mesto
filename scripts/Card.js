@@ -19,8 +19,8 @@ class Card {
   }
 
   // Лайк
-  _handleLike (evt) {
-    evt.target.classList.toggle('elements__icon_active');
+  _handleLike () {
+    this._cardLike.classList.toggle('elements__icon_active');
   }
 
   // Попап увеличения картинки

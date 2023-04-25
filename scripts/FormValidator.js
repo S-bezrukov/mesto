@@ -16,14 +16,14 @@ class FormValidator {
 	}
 
 	_setEventListeners = () => {
-		this.disableButton(this._formButton) // сделаем кнопку не активной, когда страница только загрузилась и в поля данные ещё не вводились. 
+		this.disableButton() // сделаем кнопку не активной, когда страница только загрузилась и в поля данные ещё не вводились. 
 		this._formInputs.forEach(input => { //теперь пройдёмся по этому массиву циклом и с каждым элемнтом выполним деёствие, берём инпут и накладываем на него слушатель
 			input.addEventListener('input', () => {
 				this._checkInputValidity(input)
-				if (this._hasInvalidInput(this._formInputs)) {
-					this.disableButton(this._formButton)  // сделать эту кнопку не валидной
+				if (this._hasInvalidInput()) {
+					this.disableButton()  // сделать эту кнопку не валидной
 				} else {
-					this._enableButton(this._formButton) // сделать эту кнопку валидной
+					this._enableButton() // сделать эту кнопку валидной
 				}
 			})
 		})
@@ -77,13 +77,4 @@ class FormValidator {
 
 }
 
- const validationConfig = {
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__submit-btn',
-  inactiveButtonClass: 'form__submit-btn_action_disabled',
-  activeButtonClass: 'form__submit-btn_action_enabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}
-
-export { FormValidator, validationConfig }
+export { FormValidator }

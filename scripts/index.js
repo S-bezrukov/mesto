@@ -1,4 +1,4 @@
-import { FormValidator, validationConfig } from './FormValidator.js';
+import { FormValidator } from './FormValidator.js';
 import { Card } from './Card.js';
 const page = document.querySelector('.page');
 const mainContent = document.querySelector('.content');
@@ -24,6 +24,7 @@ const placeInputCard = formAddCard.querySelector('.form__input_type_place');
 const imageInputCard = formAddCard.querySelector('.form__input_type_photo');
 const nameInputProfile = formEditProfile.querySelector('.form__input_type_name');
 const jobInputProfile = formEditProfile.querySelector('.form__input_type_job');
+const popups = document.querySelectorAll('.popup');
 
 const initialCards = [
   {
@@ -52,18 +53,26 @@ const initialCards = [
   }
 ]; 
 
+const validationConfig = {
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__submit-btn',
+  inactiveButtonClass: 'form__submit-btn_action_disabled',
+  activeButtonClass: 'form__submit-btn_action_enabled',
+  cardLikeIconActive: 'elements__icon_active',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}
+
 // Открываем попап
 export const openPopup = function (popup) {
   popup.classList.add('popup_opened')
   document.addEventListener('keydown', closePopupEsc)
-  popup.addEventListener('click', closePopupOverlay)
 }
 
 // Закрываем попап
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened')
   document.removeEventListener('keydown', closePopupEsc)
-  popup.removeEventListener('click', closePopupOverlay)
 }
 
 const openProfilePopup = function() {
@@ -104,6 +113,10 @@ const closePopupOverlay = function (evt) {
     closePopup(evt.target)
   }
 }
+
+popups.forEach(input => { 
+  input.addEventListener('click', closePopupOverlay);
+})
 
 buttonImageEditProfile.addEventListener('click', function() {
   closePopup(popupEditProfile); 
