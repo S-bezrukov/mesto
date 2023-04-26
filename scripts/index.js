@@ -114,8 +114,8 @@ const closePopupOverlay = function (evt) {
   }
 }
 
-popups.forEach(input => { 
-  input.addEventListener('click', closePopupOverlay);
+popups.forEach(popup => { 
+  popup.addEventListener('click', closePopupOverlay);
 })
 
 buttonImageEditProfile.addEventListener('click', function() {
