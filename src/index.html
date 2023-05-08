@@ -36,11 +36,11 @@
        <form class="form form_edit_profile" name="Форма профиля" novalidate>
         <h2 class="form__title">Редактировать профиль</h2>
         <label class="form__label-name">
-          <input type="text" minlength="2" maxlength="40" id="name" name="name" required placeholder="Имя" value="" class="form__input form__input_type_name">
+          <input type="text" minlength="2" maxlength="40" id="name" name="username" required placeholder="Имя" value="" class="form__input form__input_type_name">
           <span class="form__span" id="name-error"></span>
         </label>
         <label class="form__label-job">
-          <input type="text" minlength="2" maxlength="400" id="about-us" name="about-us" required placeholder="О себе" value="" class="form__input form__input_type_job">
+          <input type="text" minlength="2" maxlength="400" id="about-us" name="description" required placeholder="О себе" value="" class="form__input form__input_type_job">
           <span class="form__span" id="about-us-error"></span>
         </label>
         <button type="submit" class="form__submit-btn form__submit-btn_action_add">Сохранить</button>
@@ -53,11 +53,11 @@
       <form class="form form_add_card" name="Форма место" novalidate>
         <h2 class="form__title">Новое место</h2>
         <label class="form__label-place">
-          <input type="text" minlength="2" maxlength="30" id="place-card" name="place" required placeholder="Название" value="" class="form__input form__input_type_place">
+          <input type="text" minlength="2" maxlength="30" id="place-card" name="placename" required placeholder="Название" value="" class="form__input form__input_type_place">
           <span class="form__span" id="place-card-error"></span>
         </label>
         <label class="form__label-photo">
-          <input type="url" id="link-image" name="link-image" required placeholder="Ссылка на картинку" value="" class="form__input form__input_type_photo">
+          <input type="url" id="link-image" name="placeimage" required placeholder="Ссылка на картинку" value="" class="form__input form__input_type_photo">
           <span class="form__span form__span_padding-url" id="link-image-error"></span>
         </label>
         <button type="submit" class="form__submit-btn form__submit-btn_action_create">Создать</button>
@@ -81,6 +81,6 @@
       </div>
     </li> 
   </template>
-  <script defer type="module" src="./scripts/index.js"></script>
+  <script defer type="module" src="./pages/index.js"></script>
 </body>
 </html>
