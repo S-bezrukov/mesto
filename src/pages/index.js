@@ -8,6 +8,7 @@ import { UserInfo } from '../components/UserInfo.js';
 import {
   buttonEditProfile, formAddCard, formEditProfile, nameInputProfile, jobInputProfile, buttonAddCard
 } from '../components/utils/elements.js';
+import '../pages/index.css'
 const popupImageZoom = new PopupWithImage('.popup_zoom_card');
 popupImageZoom.setEventListeners();
 // Функции для всплывающего попапа изображения
