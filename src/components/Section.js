@@ -2,7 +2,7 @@ class Section {
   constructor({ items, renderer }, templateSelector) {
     this._initialItems = items;
     this._renderer = renderer;
-    this._templateContainer = document.querySelector(templateSelector);
+    this._container = document.querySelector(templateSelector);
   }
   // Отрисовываем все элементы
   renderItems() {
@@ -10,7 +10,7 @@ class Section {
   }
   // Принимаем DOM-элемент и добавляет его в контейнер
   addItem(cardElement) {
-    this._templateContainer.prepend(cardElement);
+    this._container.prepend(cardElement);
   }
 }
 export { Section };

@@ -1,4 +1,4 @@
-import { initialCards, validationConfig} from '../components/utils/constants.js';
+import { initialCards, validationConfig} from '../utils/constants.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Card } from '../components/Card.js';
 import { Section } from '../components/Section.js';
@@ -7,7 +7,7 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 import {
   buttonEditProfile, formAddCard, formEditProfile, nameInputProfile, jobInputProfile, buttonAddCard
-} from '../components/utils/elements.js';
+} from '../utils/elements.js';
 import '../pages/index.css'
 const popupImageZoom = new PopupWithImage('.popup_zoom_card');
 popupImageZoom.setEventListeners();
@@ -37,17 +37,17 @@ const renderCard = function (cardData) {
   return renderCardItem.createCard();
 }
 // Наполнение карточками из массива
-const renderInitialCards = new Section({
+const cardsSection = new Section({
   items: initialCards,
   renderer: (cardData) => {
-    renderInitialCards.addItem(renderCard(cardData));
+    cardsSection.addItem(renderCard(cardData));
   }
 }, '.elements__list');
-renderInitialCards.renderItems();
+cardsSection.renderItems();
 // Объявляем попап добавления новой карточки 
 const popupAddCard = new PopupWithForm('.popup_add_card', {
   callbackSubmitForm: (formValues) => { 
-    renderInitialCards.addItem(renderCard({
+    cardsSection.addItem(renderCard({
       name: formValues.placename,
       link: formValues.placeimage
     }));
@@ -55,24 +55,24 @@ const popupAddCard = new PopupWithForm('.popup_add_card', {
   }
 });
 popupAddCard.setEventListeners();
+
 const addCardValidate = new FormValidator(validationConfig, formAddCard);
 addCardValidate.enableValidation();
 const editProfileValidate = new FormValidator(validationConfig, formEditProfile);
 editProfileValidate.enableValidation();
-const errorHideProfile = new FormValidator(validationConfig, formEditProfile);
-const errorHideCard = new FormValidator(validationConfig, formAddCard);
+
 // Слушатель для иконки редактирования профиля
 buttonEditProfile.addEventListener('click', function () {
   popupEditeProfile.open();
   const actualUserInfo = userInfo.getUserInfo();
   nameInputProfile.setAttribute('value', actualUserInfo.username);
   jobInputProfile.setAttribute('value', actualUserInfo.description);
-  errorHideProfile.removeValidationErrors();
-  editProfileValidate.enableValidation();
+  editProfileValidate.removeValidationErrors();
+  editProfileValidate.disableButton();
 });
 // Слушатель для иконки добавления карточки
 buttonAddCard.addEventListener('click', function () {
   popupAddCard.open();
-  errorHideCard.removeValidationErrors();
-  addCardValidate.enableValidation();
+  addCardValidate.removeValidationErrors();
+  addCardValidate.disableButton();
 });
