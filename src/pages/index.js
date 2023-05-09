@@ -21,20 +21,20 @@ const userInfo = new UserInfo({
   userDescriptionSelector: '.profile__description'
 });
 // Объявляем попап редактирования профиля
-const popupEditeProfile = new PopupWithForm('.popup_edit_profile', {
+const editePopupWithForm = new PopupWithForm('.popup_edit_profile', {
   callbackSubmitForm: (profileData) => {
     userInfo.setUserInfo({
       username: profileData.username,
       description: profileData.description
     });
-    popupEditeProfile.close();
+    editePopupWithForm.close();
   }
 });
-popupEditeProfile.setEventListeners();
+editePopupWithForm.setEventListeners();
 // Объявляем функцию добавления карточек
 const renderCard = function (cardData) {
-  const renderCardItem = new Card(cardData, '.element_template', handleCardClick);
-  return renderCardItem.createCard();
+  const renderCard = new Card(cardData, '.element_template', handleCardClick);
+  return renderCard.createCard();
 }
 // Наполнение карточками из массива
 const cardsSection = new Section({
@@ -45,34 +45,34 @@ const cardsSection = new Section({
 }, '.elements__list');
 cardsSection.renderItems();
 // Объявляем попап добавления новой карточки 
-const popupAddCard = new PopupWithForm('.popup_add_card', {
+const addCardPopupWithForm = new PopupWithForm('.popup_add_card', {
   callbackSubmitForm: (formValues) => { 
     cardsSection.addItem(renderCard({
       name: formValues.placename,
       link: formValues.placeimage
     }));
-    popupAddCard.close();
+    addCardPopupWithForm.close();
   }
 });
-popupAddCard.setEventListeners();
+addCardPopupWithForm.setEventListeners();
 
-const addCardValidate = new FormValidator(validationConfig, formAddCard);
-addCardValidate.enableValidation();
-const editProfileValidate = new FormValidator(validationConfig, formEditProfile);
-editProfileValidate.enableValidation();
+const addCardFormValidator = new FormValidator(validationConfig, formAddCard);
+addCardFormValidator.enableValidation();
+const editProfileFormValidator = new FormValidator(validationConfig, formEditProfile);
+editProfileFormValidator.enableValidation();
 
 // Слушатель для иконки редактирования профиля
 buttonEditProfile.addEventListener('click', function () {
-  popupEditeProfile.open();
+  editePopupWithForm.open();
   const actualUserInfo = userInfo.getUserInfo();
   nameInputProfile.setAttribute('value', actualUserInfo.username);
   jobInputProfile.setAttribute('value', actualUserInfo.description);
-  editProfileValidate.removeValidationErrors();
-  editProfileValidate.disableButton();
+  editProfileFormValidator.removeValidationErrors();
+  editProfileFormValidator.disableButton();
 });
 // Слушатель для иконки добавления карточки
 buttonAddCard.addEventListener('click', function () {
-  popupAddCard.open();
-  addCardValidate.removeValidationErrors();
-  addCardValidate.disableButton();
+  addCardPopupWithForm.open();
+  addCardFormValidator.removeValidationErrors();
+  addCardFormValidator.disableButton();
 });
