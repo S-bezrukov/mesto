@@ -1,8 +1,9 @@
 class UserInfo {
-  // Принимает объект с селекторами элементов: элемент имени пользователя и элемент опмисание
-  constructor({ usernameSelector, userDescriptionSelector }) {
+  // Принимает объект с селекторами элементов пользователя
+  constructor({ usernameSelector, userDescriptionSelector, userAvatarSelector }) {
     this._username = document.querySelector(usernameSelector);
     this._userDescription = document.querySelector(userDescriptionSelector);
+    this._avatarLink = document.querySelector(userAvatarSelector);
   }
   // Возвращает объект с данными пользователя
   getUserInfo() {
@@ -11,11 +12,15 @@ class UserInfo {
       description: this._userDescription.textContent
     };
   }
-  // Принимает новые данные пользователя и добавляет их на страницу
+  // Получаем новые данные пользователя и вставляем их
   setUserInfo({ username, description }) {
     this._username.textContent = username;
     this._userDescription.textContent = description;
     
+  }
+  // Обновляем ссылку аватара
+  setUserAvatar(avatarLink) {
+    this._avatarLink.src = avatarLink;
   }
 }
 export { UserInfo };

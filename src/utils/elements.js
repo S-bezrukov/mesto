@@ -8,5 +8,7 @@ const jobInputProfile = formEditProfile.querySelector('.form__input_type_job');
 const page = document.querySelector('.page');
 const popupAddCard = page.querySelector('.popup_add_card');
 const formAddCard = popupAddCard.querySelector('.form_add_card');
-
-export { buttonEditProfile, formAddCard, formEditProfile, nameInputProfile, jobInputProfile, buttonAddCard };
+const popupAvatarEdit = document.querySelector('.popup_avatar');
+const popupEditAvatarForm = popupAvatarEdit.querySelector('.form_edit_avatar');
+const iconAvatarEdit = document.querySelector('.profile__avatar-edit');
+export { buttonEditProfile, formAddCard, formEditProfile, nameInputProfile, jobInputProfile, buttonAddCard, iconAvatarEdit, popupEditAvatarForm };

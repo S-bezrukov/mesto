@@ -4,6 +4,8 @@
   justify-content: space-between;
   border-radius: 0 0 10px 10px;
   padding: 25px 15px 31px 21px;
+  height: 29px;
+  align-items: center;
 }
 
 @media screen and (max-width: 838px) {

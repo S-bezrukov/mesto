@@ -1,12 +1,10 @@
 import { Popup } from './Popup.js';
 class PopupWithImage extends Popup {
-  // Конструктор принимает селектор попап
   constructor(popupSelector) {
     super(popupSelector);
     this._popupTitlePlace = this._popupItem.querySelector('.popup__title-place');
     this._popupImagePlace = this._popupItem.querySelector('.popup__image-place');
   }
-  // Перезаписывает родительский метод открытия
   open(description, image) {
     this._popupTitlePlace.textContent = description;
     this._popupImagePlace.src = image;
