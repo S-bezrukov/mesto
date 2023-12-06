@@ -9,8 +9,10 @@
 
 **Технологии**
 
-В этом проекте были использованы технологии: grid, flex, java script, валидация форм, классы и модули в js, Webpack
+grid, flex, java script, валидация форм, классы и модули в js, Webpack
 
 **Ссылка**
 
 https://s-bezrukov.github.io/mesto/index.html
+
+
